@@ -467,7 +467,7 @@ public abstract class BaseRepository<T extends BaseModel<T>> implements BaseRepo
 
 	private static final int INVALID_INDEX = -1;
 	private static final String COUNT_PROJECTION = "COUNT(*)";
-	private static final String CONNECTION_STRING = "localhost:5432/rphillipsdb?user=rphillips";
+	private static final String CONNECTION_STRING = "localhost:5432/rphillipsdb?user=rphillips&password=";
 	
 	protected BaseRepository(DatabaseTable primaryTable) {
 		this.primaryTable = primaryTable;
