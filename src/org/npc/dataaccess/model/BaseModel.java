@@ -1,4 +1,4 @@
-package co.vctry.dataaccess.model;
+package org.npc.dataaccess.model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,8 +12,7 @@ import java.util.UUID;
 import java.util.function.Consumer;
 
 import org.apache.commons.lang3.StringUtils;
-
-import co.vctry.dataaccess.repository.BaseRepositoryInterface;
+import org.npc.dataaccess.repository.BaseRepositoryInterface;
 
 public abstract class BaseModel<T extends BaseModel<T>> {
 	protected UUID id;

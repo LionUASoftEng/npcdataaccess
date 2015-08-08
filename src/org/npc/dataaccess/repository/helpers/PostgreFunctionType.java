@@ -1,4 +1,4 @@
-package co.vctry.dataaccess.repository.helpers;
+package org.npc.dataaccess.repository.helpers;
 
 public enum PostgreFunctionType {
 	NONE(""),

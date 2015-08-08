@@ -1,9 +1,8 @@
-package co.vctry.dataaccess.repository.helpers.join;
+package org.npc.dataaccess.repository.helpers.join;
 
 import org.apache.commons.lang3.StringUtils;
-
-import co.vctry.dataaccess.repository.DatabaseTable;
-import co.vctry.dataaccess.repository.helpers.SQLComparisonType;
+import org.npc.dataaccess.repository.DatabaseTable;
+import org.npc.dataaccess.repository.helpers.SQLComparisonType;
 
 public class BaseJoinCriteria {
 	private SQLJoinType type;

@@ -1,4 +1,4 @@
-package co.vctry.dataaccess.repository.helpers.join;
+package org.npc.dataaccess.repository.helpers.join;
 
 public enum SQLJoinType {
 	NONE(""),

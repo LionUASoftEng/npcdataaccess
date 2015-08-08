@@ -1,4 +1,4 @@
-package co.vctry.dataaccess.repository;
+package org.npc.dataaccess.repository;
 
 public enum DatabaseTable {
 	NONE(""),

@@ -1,9 +1,8 @@
-package co.vctry.dataaccess.repository.helpers.orderby;
+package org.npc.dataaccess.repository.helpers.orderby;
 
 import org.apache.commons.lang3.StringUtils;
-
-import co.vctry.dataaccess.repository.DatabaseTable;
-import co.vctry.dataaccess.repository.helpers.SQLSortOrder;
+import org.npc.dataaccess.repository.DatabaseTable;
+import org.npc.dataaccess.repository.helpers.SQLSortOrder;
 
 public class OrderByContainer {
 	private DatabaseTable orderByTable;

@@ -1,4 +1,4 @@
-package co.vctry.dataaccess.repository;
+package org.npc.dataaccess.repository;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -13,14 +13,14 @@ import java.util.function.Consumer;
 import java.util.function.UnaryOperator;
 import java.util.stream.Collectors;
 
-import co.vctry.dataaccess.model.BaseFieldNames;
-import co.vctry.dataaccess.model.BaseModel;
-import co.vctry.dataaccess.repository.helpers.PostgreFunctionType;
-import co.vctry.dataaccess.repository.helpers.SQLComparisonType;
-import co.vctry.dataaccess.repository.helpers.join.JoinContainer;
-import co.vctry.dataaccess.repository.helpers.orderby.OrderByContainer;
-import co.vctry.dataaccess.repository.helpers.where.WhereClause;
-import co.vctry.dataaccess.repository.helpers.where.WhereContainer;
+import org.npc.dataaccess.model.BaseFieldNames;
+import org.npc.dataaccess.model.BaseModel;
+import org.npc.dataaccess.repository.helpers.PostgreFunctionType;
+import org.npc.dataaccess.repository.helpers.SQLComparisonType;
+import org.npc.dataaccess.repository.helpers.join.JoinContainer;
+import org.npc.dataaccess.repository.helpers.orderby.OrderByContainer;
+import org.npc.dataaccess.repository.helpers.where.WhereClause;
+import org.npc.dataaccess.repository.helpers.where.WhereContainer;
 
 public abstract class BaseRepository<T extends BaseModel<T>> implements BaseRepositoryInterface<T> {
 	public int count() {
@@ -180,14 +180,13 @@ public abstract class BaseRepository<T extends BaseModel<T>> implements BaseRepo
 		return String.format("%s.*", primaryTable.getLabel());
 	}
 
-	private String connectionString;
 	protected String getConnectionString() {
-		return this.connectionString;
+		return CONNECTION_STRING;
 	}
 
 	protected Connection openConnection() throws SQLException, ClassNotFoundException {
         Class.forName("org.postgresql.Driver");
-        return DriverManager.getConnection(String.format("jdbc:postgresql://%s", this.connectionString));
+        return DriverManager.getConnection(String.format("jdbc:postgresql://%s", CONNECTION_STRING));
 	}
 	
 	// Select first or default
@@ -230,7 +229,7 @@ public abstract class BaseRepository<T extends BaseModel<T>> implements BaseRepo
 		}
 		
 		if (model != null) {
-			model.onLoadComplete(this.connectionString);
+			model.onLoadComplete(CONNECTION_STRING);
 		}
 
 		return model;
@@ -298,7 +297,7 @@ public abstract class BaseRepository<T extends BaseModel<T>> implements BaseRepo
 		}
 		
 		for (T result : results) {
-			result.onLoadComplete(this.connectionString);
+			result.onLoadComplete(CONNECTION_STRING);
 		}
 
 		return results;
@@ -468,9 +467,9 @@ public abstract class BaseRepository<T extends BaseModel<T>> implements BaseRepo
 
 	private static final int INVALID_INDEX = -1;
 	private static final String COUNT_PROJECTION = "COUNT(*)";
+	private static final String CONNECTION_STRING = "localhost:5432/rphillipsdb?user=rphillips";
 	
-	protected BaseRepository(DatabaseTable primaryTable, String connectionString) {
+	protected BaseRepository(DatabaseTable primaryTable) {
 		this.primaryTable = primaryTable;
-		this.connectionString = connectionString;
 	}
 }

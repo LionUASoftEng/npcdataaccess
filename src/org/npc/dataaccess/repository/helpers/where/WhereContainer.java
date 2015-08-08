@@ -1,4 +1,4 @@
-package co.vctry.dataaccess.repository.helpers.where;
+package org.npc.dataaccess.repository.helpers.where;
 
 import java.util.LinkedList;
 

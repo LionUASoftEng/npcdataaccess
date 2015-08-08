@@ -1,11 +1,11 @@
-package co.vctry.dataaccess.repository;
+package org.npc.dataaccess.repository;
 
 import java.sql.Connection;
 import java.util.Collection;
 import java.util.UUID;
 import java.util.function.Consumer;
 
-import co.vctry.dataaccess.model.BaseModel;
+import org.npc.dataaccess.model.BaseModel;
 
 public interface BaseRepositoryInterface<T extends BaseModel<T>> {
 	int count();
