@@ -2,6 +2,7 @@ package org.npc.dataaccess.repository;
 
 public enum DatabaseTable {
 	NONE(""),
+	EMPLOYEE("employee"),
 	PRODUCT("product");
 	
 	public String getLabel() {
