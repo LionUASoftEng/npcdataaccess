@@ -2,8 +2,10 @@ package org.npc.dataaccess.repository;
 
 public enum DatabaseTable {
 	NONE(""),
+	PRODUCT("product"),
 	EMPLOYEE("employee"),
-	PRODUCT("product");
+	TRANSACTION("transaction"),
+	TENDERENTRY("tenderentry");
 	
 	public String getLabel() {
 		return label;
